@@ -1,0 +1,196 @@
+/* Estilos personalizados adicionales para MASSHA'S CATERING */
+
+/* Animaciones suaves */
+.card, .btn, .nav-link {
+    transition: all 0.3s ease;
+}
+
+/* Hover effects */
+.table tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+/* Modales más bonitos */
+.modal-content {
+    border-radius: 15px;
+    border: none;
+}
+
+.modal-header {
+    border-radius: 15px 15px 0 0;
+}
+
+/* Inputs con mejor diseño */
+.form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+/* Alertas personalizadas */
+.alert {
+    border-radius: 10px;
+    border-left: 4px solid;
+}
+
+.alert-success {
+    border-left-color: #27ae60;
+}
+
+.alert-warning {
+    border-left-color: #f39c12;
+}
+
+.alert-danger {
+    border-left-color: #e74c3c;
+}
+
+/* Mejoras responsive */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 15px;
+    }
+    
+    .table {
+        font-size: 12px;
+    }
+}
+
+/* Forzar tamaño de flechas de paginación */
+.pagination .page-link svg {
+    width: 12px !important;
+    height: 12px !important;
+    max-width: 12px !important;
+    max-height: 12px !important;
+}
+
+.pagination .page-link {
+    min-width: 35px;
+    min-height: 35px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+/* ====== Fix: tamaño correcto para flechas/íconos en paginación y nav ====== */
+
+/* 1) Íconos dentro de la paginación (FontAwesome y SVG) */
+.pagination .page-link i,
+.pagination .page-link .fa,
+.pagination .page-link svg,
+.pagination .page-link .icon {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;            /* evita que el icono herede line-height gigante */
+    width: auto !important;
+    height: auto !important;
+    max-width: 18px !important; /* tamaño máximo razonable */
+    max-height: 18px !important;
+}
+
+/* Para iconos de fuente (FontAwesome) usa font-size */
+.pagination .page-link i.fas,
+.pagination .page-link i.far,
+.pagination .page-link i.fab,
+.pagination .page-link .fa {
+    font-size: 0.95rem !important; /* ajusta a tu gusto (0.85rem - 1rem) */
+}
+
+/* Para SVG explícitos (por si alguno tiene viewBox extraño) */
+.pagination .page-link svg {
+    width: 18px !important;
+    height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
+}
+
+/* 2) Asegurar tamaño y centrado del botón de paginación */
+.pagination .page-link {
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 6px 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 3) Íconos de la barra lateral (sidebar) — evitar que sean gigantes */
+.sidebar .nav-link i {
+    font-size: 16px; /* ajusta si quieres más pequeño (14px) o más grande */
+    width: auto;
+    height: auto;
+    line-height: 1;
+}
+
+/* 4) Contramedida para reglas muy específicas de frameworks (clases w-5/h-5 de tailwind usadas por componentes) */
+.pagination .w-5, .pagination .h-5 {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* 5) Último recurso: si algún SVG está usando transform/scale, resetea transform en paginación */
+.pagination .page-link svg {
+    transform: none !important;
+}
+
+/* Limpiar posibles efectos heredados de font-size grandes */
+.pagination, .pagination * {
+    font-size: inherit;
+}
+
+/* ===== Arreglo definitivo para SVG gigantes en paginación y nav ===== */
+
+/* 1) Forzar tamaño razonable para TODOS los SVG dentro de paginación */
+.pagination svg,
+.pagination .page-link svg,
+nav .pagination svg {
+    width: 18px !important;
+    height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    line-height: 1 !important;
+    transform: none !important;        /* elimina escalados por transform */
+    overflow: hidden !important;
+}
+
+/* 2) Si el icono es de fuente (FontAwesome <i>), controlar con font-size */
+.pagination .page-link i,
+.pagination .page-link .fa,
+nav .page-link i,
+nav .page-link .fa {
+    font-size: 0.95rem !important;
+    line-height: 1 !important;
+}
+
+/* 3) Asegurar que los contenedores no inflen el SVG */
+.pagination .page-link,
+nav .page-link {
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 6px 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: visible !important; /* evita recortes raros */
+}
+
+/* 4) Reset para clases específicas (tailwind-like w-5 / h-5) */
+.w-5, .h-5, .pagination .w-5, .pagination .h-5 {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* 5) Si algún SVG viene con atributos width/height muy grandes inline, forzamos auto y max */
+.pagination svg[width], .pagination svg[height] {
+    width: auto !important;
+    height: auto !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
+}
+
+/* 6) En casos raros de duplicados visuales: esconder SVG que queden fuera del flujo */
+.pagination svg[style*="position:absolute"],
+.pagination svg[style*="left:"],
+.pagination svg[style*="top:"] {
+    display: none !important;
+}
