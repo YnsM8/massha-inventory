@@ -63,7 +63,7 @@
                         </tr>
                         <tr>
                             <th>Fecha del Evento:</th>
-                            <td>{{ $solicitud->fecha_evento->format('d/m/Y') }}</td>
+                            <td>{{ $solicitud->fecha_evento ? $solicitud->fecha_evento->format('d/m/Y') : 'Sin fecha' }}</td>
                         </tr>
                         <tr>
                             <th>Estado:</th>
@@ -91,33 +91,35 @@
                 <div class="card-body">
                     <table class="table table-borderless">
                         <tr>
-                            <th width="40%">Solicitado por:</th>
-                            <td>{{ $solicitud->user->name }}</td>
+                            <th width="40%">Código:</th>
+                            <td><strong>{{ $solicitud->codigo_solicitud ?? 'Sin código' }}</strong></td>
                         </tr>
                         <tr>
-                            <th>Fecha de Solicitud:</th>
-                            <td>{{ $solicitud->created_at->format('d/m/Y H:i') }}</td>
+                            <th>Evento:</th>
+                            <td>{{ $solicitud->evento ?? 'Sin nombre' }}</td>
                         </tr>
-                        @if($solicitud->estado == 'aprobada')
-                            <tr>
-                                <th>Aprobado por:</th>
-                                <td>{{ $solicitud->aprobador->name ?? 'N/A' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Fecha de Aprobación:</th>
-                                <td>{{ $solicitud->fecha_aprobacion ? $solicitud->fecha_aprobacion->format('d/m/Y H:i') : 'N/A' }}</td>
-                            </tr>
-                        @elseif($solicitud->estado == 'rechazada')
-                            <tr>
-                                <th>Rechazado:</th>
-                                <td><span class="badge bg-danger">Solicitud Rechazada</span></td>
-                            </tr>
-                        @else
-                            <tr>
-                                <th>Estado Actual:</th>
-                                <td><span class="badge bg-warning">Pendiente de Aprobación</span></td>
-                            </tr>
-                        @endif
+                        <tr>
+                            <th>Fecha del Evento:</th>
+                            <td>
+                                @if($solicitud->fecha_evento)
+                                    {{ $solicitud->fecha_evento->format('d/m/Y') }}
+                                @else
+                                    <span class="text-muted">Sin fecha</span>
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Estado:</th>
+                            <td>
+                                <span class="badge bg-{{ $solicitud->estado_color ?? 'secondary' }} fs-6">
+                                    {{ $solicitud->estado_label ?? 'Desconocido' }}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Observaciones:</th>
+                            <td>{{ $solicitud->observaciones ?? 'Sin observaciones' }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>
