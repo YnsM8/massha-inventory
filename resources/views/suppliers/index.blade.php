@@ -98,7 +98,7 @@
 function toggleStatus(id) {
     if (confirm('¿Cambiar el estado del proveedor?')) {
         fetch(`/suppliers/${id}/toggle-status`, {
-            method: 'PATCH',
+            method: 'POST',
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}',
                 'Accept': 'application/json'
