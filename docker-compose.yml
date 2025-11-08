@@ -1,0 +1,55 @@
+services:
+  # 1. Servicio de la Aplicación (Laravel PHP)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: massha-app
+    container_name: massha-app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - massha-network
+
+  # 2. Servicio de Servidor Web (Nginx)
+  nginx:
+    image: nginx:alpine
+    container_name: massha-nginx
+    restart: unless-stopped
+    ports:
+      - "8080:80"  # Usaremos el puerto 8080 en tu PC para no chocar con XAMPP (que suele usar el 80)
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - massha-network
+    depends_on:
+      - app
+
+  # 3. Servicio de Base de Datos (MySQL)
+  db:
+    image: mysql:8.0
+    container_name: massha-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+    ports:
+      - "3307:3306" # Usaremos el puerto 3307 para no chocar con el MySQL de XAMPP (3306)
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - massha-network
+
+# Definición de redes y volúmenes
+networks:
+  massha-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
