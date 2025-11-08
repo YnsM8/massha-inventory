@@ -43,6 +43,37 @@ services:
     networks:
       - massha-network
 
+  # 4. Servicio de Calidad de Código (SonarQube) - ISO 25000
+  sonarqube:
+    image: sonarqube:community
+    container_name: massha-sonar
+    restart: unless-stopped
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    ports:
+      - "9000:9000"
+    networks:
+      - massha-network
+    volumes:
+      - sonar_data:/opt/sonarqube/data
+      - sonar_extensions:/opt/sonarqube/extensions
+      - sonar_logs:/opt/sonarqube/logs
+
+  # 5. Escáner de Sonar (Ejecuta el análisis)
+  sonar-scanner:
+    image: sonarsource/sonar-scanner-cli
+    container_name: massha-scanner
+    profiles: ["scan"] # Solo se ejecuta cuando lo pedimos explícitamente
+    depends_on:
+      - sonarqube
+    networks:
+      - massha-network
+    environment:
+      - SONAR_HOST_URL=http://sonarqube:9000
+      - SONAR_TOKEN=sqa_5cd9826b856efe9d5660cc4b91bc2f8f2a36f18a
+    volumes:
+      - ./:/usr/src
+
 # Definición de redes y volúmenes
 networks:
   massha-network:
@@ -50,4 +81,10 @@ networks:
 
 volumes:
   dbdata:
+    driver: local
+  sonar_data:
+    driver: local
+  sonar_logs:
+    driver: local
+  sonar_extensions:
     driver: local
