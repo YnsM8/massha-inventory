@@ -17,6 +17,13 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Instalamos las extensiones de PHP que necesita Laravel
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
+# Instalamos y habilitamos Xdebug para el Code Coverage
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+# Configuramos Xdebug para que solo funcione en modo cobertura (más rápido)
+RUN echo "xdebug.mode=coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 # Instalamos Composer (el gestor de dependencias de PHP)
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
