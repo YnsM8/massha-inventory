@@ -36,8 +36,6 @@ services:
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_USER: ${DB_USERNAME}
     ports:
       - "3307:3306" # Usaremos el puerto 3307 para no chocar con el MySQL de XAMPP (3306)
     volumes:
