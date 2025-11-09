@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1762613950">
-  <project timestamp="1762613950" name="Clover Coverage">
+<coverage generated="1762658471">
+  <project timestamp="1762658471" name="Clover Coverage">
     <package name="App\Http\Controllers\Auth">
       <file name="/var/www/app/Http/Controllers/Auth/ConfirmPasswordController.php">
         <class name="App\Http\Controllers\Auth\ConfirmPasswordController" namespace="App\Http\Controllers\Auth">
@@ -785,25 +785,25 @@
     <package name="App\Models">
       <file name="/var/www/app/Models/Item.php">
         <class name="App\Models\Item" namespace="App\Models">
-          <metrics complexity="25" methods="14" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="56" coveredstatements="34" elements="70" coveredelements="39"/>
+          <metrics complexity="25" methods="14" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="56" coveredstatements="36" elements="70" coveredelements="43"/>
         </class>
-        <line num="32" type="method" name="boot" visibility="protected" complexity="1" crap="1" count="15"/>
-        <line num="34" type="stmt" count="15"/>
-        <line num="36" type="stmt" count="15"/>
-        <line num="37" type="stmt" count="10"/>
-        <line num="38" type="stmt" count="15"/>
+        <line num="32" type="method" name="boot" visibility="protected" complexity="1" crap="1" count="18"/>
+        <line num="34" type="stmt" count="18"/>
+        <line num="36" type="stmt" count="18"/>
+        <line num="37" type="stmt" count="12"/>
+        <line num="38" type="stmt" count="18"/>
         <line num="42" type="method" name="supplier" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="44" type="stmt" count="1"/>
-        <line num="47" type="method" name="movements" visibility="public" complexity="1" crap="1" count="3"/>
-        <line num="49" type="stmt" count="3"/>
+        <line num="47" type="method" name="movements" visibility="public" complexity="1" crap="1" count="4"/>
+        <line num="49" type="stmt" count="4"/>
         <line num="52" type="method" name="stockAlerts" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="54" type="stmt" count="0"/>
-        <line num="58" type="method" name="updateStatus" visibility="public" complexity="3" crap="3.07" count="10"/>
-        <line num="60" type="stmt" count="10"/>
-        <line num="61" type="stmt" count="0"/>
-        <line num="62" type="stmt" count="10"/>
-        <line num="63" type="stmt" count="2"/>
-        <line num="65" type="stmt" count="9"/>
+        <line num="58" type="method" name="updateStatus" visibility="public" complexity="3" crap="3" count="12"/>
+        <line num="60" type="stmt" count="12"/>
+        <line num="61" type="stmt" count="1"/>
+        <line num="62" type="stmt" count="12"/>
+        <line num="63" type="stmt" count="3"/>
+        <line num="65" type="stmt" count="11"/>
         <line num="69" type="method" name="addStock" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="71" type="stmt" count="1"/>
         <line num="72" type="stmt" count="1"/>
@@ -818,18 +818,18 @@
         <line num="82" type="stmt" count="1"/>
         <line num="83" type="stmt" count="1"/>
         <line num="84" type="stmt" count="1"/>
-        <line num="87" type="method" name="removeStock" visibility="public" complexity="2" crap="2.00" count="2"/>
-        <line num="89" type="stmt" count="2"/>
+        <line num="87" type="method" name="removeStock" visibility="public" complexity="2" crap="2.00" count="3"/>
+        <line num="89" type="stmt" count="3"/>
         <line num="90" type="stmt" count="0"/>
-        <line num="93" type="stmt" count="2"/>
-        <line num="94" type="stmt" count="2"/>
-        <line num="96" type="stmt" count="2"/>
-        <line num="97" type="stmt" count="2"/>
-        <line num="98" type="stmt" count="2"/>
-        <line num="99" type="stmt" count="2"/>
-        <line num="100" type="stmt" count="2"/>
-        <line num="101" type="stmt" count="2"/>
-        <line num="102" type="stmt" count="2"/>
+        <line num="93" type="stmt" count="3"/>
+        <line num="94" type="stmt" count="3"/>
+        <line num="96" type="stmt" count="3"/>
+        <line num="97" type="stmt" count="3"/>
+        <line num="98" type="stmt" count="3"/>
+        <line num="99" type="stmt" count="3"/>
+        <line num="100" type="stmt" count="3"/>
+        <line num="101" type="stmt" count="3"/>
+        <line num="102" type="stmt" count="3"/>
         <line num="106" type="method" name="scopeSearch" visibility="public" complexity="1" crap="2" count="0"/>
         <line num="108" type="stmt" count="0"/>
         <line num="109" type="stmt" count="0"/>
@@ -855,9 +855,9 @@
         <line num="145" type="stmt" count="0"/>
         <line num="146" type="stmt" count="0"/>
         <line num="147" type="stmt" count="0"/>
-        <line num="150" type="method" name="getTotalValueAttribute" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="152" type="stmt" count="0"/>
-        <metrics loc="154" ncloc="149" classes="1" methods="14" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="56" coveredstatements="34" elements="70" coveredelements="39"/>
+        <line num="150" type="method" name="getTotalValueAttribute" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="152" type="stmt" count="1"/>
+        <metrics loc="154" ncloc="149" classes="1" methods="14" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="56" coveredstatements="36" elements="70" coveredelements="43"/>
       </file>
       <file name="/var/www/app/Models/Movement.php">
         <class name="App\Models\Movement" namespace="App\Models">
@@ -987,11 +987,11 @@
         <class name="App\Models\User" namespace="App\Models">
           <metrics complexity="17" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="8" elements="29" coveredelements="13"/>
         </class>
-        <line num="42" type="method" name="casts" visibility="protected" complexity="1" crap="1" count="21"/>
-        <line num="44" type="stmt" count="21"/>
-        <line num="45" type="stmt" count="21"/>
-        <line num="46" type="stmt" count="21"/>
-        <line num="47" type="stmt" count="21"/>
+        <line num="42" type="method" name="casts" visibility="protected" complexity="1" crap="1" count="22"/>
+        <line num="44" type="stmt" count="22"/>
+        <line num="45" type="stmt" count="22"/>
+        <line num="46" type="stmt" count="22"/>
+        <line num="47" type="stmt" count="22"/>
         <line num="53" type="method" name="isAdmin" visibility="public" complexity="1" crap="1" count="7"/>
         <line num="55" type="stmt" count="7"/>
         <line num="61" type="method" name="isProduccion" visibility="public" complexity="1" crap="1" count="1"/>
@@ -1024,13 +1024,13 @@
         <class name="App\Providers\AppServiceProvider" namespace="App\Providers">
           <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
         </class>
-        <line num="12" type="method" name="register" visibility="public" complexity="1" crap="1" count="26"/>
-        <line num="15" type="stmt" count="26"/>
-        <line num="20" type="method" name="boot" visibility="public" complexity="1" crap="1" count="26"/>
-        <line num="23" type="stmt" count="26"/>
+        <line num="12" type="method" name="register" visibility="public" complexity="1" crap="1" count="30"/>
+        <line num="15" type="stmt" count="30"/>
+        <line num="20" type="method" name="boot" visibility="public" complexity="1" crap="1" count="30"/>
+        <line num="23" type="stmt" count="30"/>
         <metrics loc="25" ncloc="17" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </file>
     </package>
-    <metrics files="25" loc="2112" ncloc="1837" classes="24" methods="112" coveredmethods="32" conditionals="0" coveredconditionals="0" statements="758" coveredstatements="254" elements="870" coveredelements="286"/>
+    <metrics files="25" loc="2112" ncloc="1837" classes="24" methods="112" coveredmethods="34" conditionals="0" coveredconditionals="0" statements="758" coveredstatements="256" elements="870" coveredelements="290"/>
   </project>
 </coverage>
